@@ -1,0 +1,58 @@
+spring:
+  devtools:
+    livereload:
+      enabled: true
+    freemarker:
+      cache: false
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+  
+  # datasource:
+  #   h2:
+  #     platform: h2
+  #     driverClassName: org.h2.Driver
+  #     url: jdbc:h2:~/test;AUTO_SERVER=TRUE
+  #     username: sa
+  #     password:
+    
+  #   h2:
+  #     console:
+  #       enabled: true
+  #       path: /console
+
+  datasource:
+    type: org.apache.tomcat.jdbc.pool.DataSource
+    driverClassName: org.postgresql.Driver
+#    url: jdbc:postgresql://sport-saas-psql.cf37vedvxld3.ap-northeast-2.rds.amazonaws.com:5432/sportsaas?autoReconnect=true&useSSL=false
+    url: jdbc:postgresql://192.168.200.12:5432/egovalldb?autoReconnect=true&useSSL=false
+    username: devpro
+    #password: ENC(2L3MvBFx+sCd0DQ79sMY6wR0bJvSGq3R)
+    password: com01
+
+
+
+mybatis:
+  mapper-locations: classpath:mappers/**/*.xml
+  configuration:
+    lazyLoadingEnabled: true
+    aggressiveLazyLoading: false
+    mapUnderscoreToCamelCase: true
+        
+    
+    
+jasypt:
+  encryptor:
+    algorithm: PBEWithMD5AndDES
+    password: gigageniefortune
+    
+
+server:
+  port: 8080
+  context-path: /
+  jsp-servlet:
+    init-parameters: 
+      developement: true
+      
+
